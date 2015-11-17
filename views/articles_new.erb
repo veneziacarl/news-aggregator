@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Submit Article</title>
+    <link rel="stylesheet" href=styles.css>
+  </head>
+
+  <body>
+    <h1>Don't slack, submit!</h1>
+    <a href="/articles">View articles</a>
+    <br>
+    <h3><%= @error %></h3>
+
+    <ul>
+      <form action="/articles/new" method="post">
+        <label for="title">Article Title</label>
+        <input type="text" id="title" name="title" value="<%= @previous_title %>" required>
+        <label for="url">Article URL</label>
+        <input type="url" id="url" name="url" value="<%= @previous_url %>" required>
+        <label for="description">Article Description</label>
+        <input type="text" id="description" name="description" value="<%= @previous_description %>" pattern=".{20,}" required title="20 characters or more">
+
+        <input type="submit">
+      </form>
+    </ul>
+  </body>
+
+</html>
